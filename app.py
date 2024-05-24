@@ -1,14 +1,30 @@
 import dearpygui.dearpygui as dpg
 
 dpg.create_context()
-dpg.create_viewport(title='Custom Title', width=600, height=300)
 
 with dpg.window(label="Primary Window"):
-    dpg.add_text("Hello, world")
-    dpg.add_button(label="Save")
-    dpg.add_input_text(label="string", default_value="Quick brown fox")
-    dpg.add_slider_float(label="float", default_value=0.273, max_value=1)
 
+    with dpg.menu_bar():
+        with dpg.menu(label="File"):
+            dpg.add_menu_item(label="Save")
+            dpg.add_menu_item(label="Settings")
+            dpg.add_menu_item(label="Quit")
+        dpg.add_menu_item(label="Home")
+        with dpg.menu(label="Team Management"):
+            dpg.add_menu_item(label="My Team")
+            dpg.add_menu_item(label="Game Plan")
+            dpg.add_menu_item(label="Practice")
+        with dpg.menu(label="League"):
+            dpg.add_menu_item(label="Top 25")
+            dpg.add_menu_item(label="Conference Standings")
+        with dpg.menu(label="Stats"):
+            dpg.add_menu_item(label="Team Stats")
+            dpg.add_menu_item(label="Player Stats")
+            dpg.add_menu_item(label="Coach Stats")
+            
+
+
+dpg.create_viewport(title='College Basketball Dynasty', width=1000, height=600)
 dpg.setup_dearpygui()
 dpg.show_viewport()
 dpg.start_dearpygui()
