@@ -22,6 +22,7 @@ with dpg.window(label="Primary Window"):
             dpg.add_menu_item(label="Player Stats")
             dpg.add_menu_item(label="Coach Stats")
             
+            
 
 
 dpg.create_viewport(title='College Basketball Dynasty', width=1000, height=600)
