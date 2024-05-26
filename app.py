@@ -1,8 +1,15 @@
 import dearpygui.dearpygui as dpg
+from Objects import *
+
+
+def GeneratePlayer():
+    newPlayer = Player()
+    newPlayer.generatePlayer()
 
 dpg.create_context()
 
-with dpg.window(label="Primary Window"):
+##Main window
+with dpg.window(label="Main"):
 
     with dpg.menu_bar():
         with dpg.menu(label="File"):
@@ -14,6 +21,7 @@ with dpg.window(label="Primary Window"):
             dpg.add_menu_item(label="My Team")
             dpg.add_menu_item(label="Game Plan")
             dpg.add_menu_item(label="Practice")
+            dpg.add_menu_item(label="Generate Player", callback=GeneratePlayer)
         with dpg.menu(label="League"):
             dpg.add_menu_item(label="Top 25")
             dpg.add_menu_item(label="Conference Standings")
@@ -21,7 +29,23 @@ with dpg.window(label="Primary Window"):
             dpg.add_menu_item(label="Team Stats")
             dpg.add_menu_item(label="Player Stats")
             dpg.add_menu_item(label="Coach Stats")
-            
+
+
+##Recruting window            
+with dpg.window(label="Recruiting"):
+    with dpg.menu_bar():
+        dpg.add_menu_item(label="Available Targets")
+        dpg.add_menu_item(label="My Targets")
+        dpg.add_menu_item(label="Calendar")
+        dpg.add_menu_item(label="Class Rankings")
+
+##Schedule window
+with dpg.window(label="Schedule"):
+    with dpg.menu_bar():
+        dpg.add_menu_item(label="Practice")
+        dpg.add_menu_item(label="Depth Chart")
+        dpg.add_menu_item(label="Calendar")
+    dpg.add_button(enabled=True, label="Save and Advance to next game")
             
 
 
