@@ -54,23 +54,24 @@ class Player:
 
     def generatePlayer(self):
         ##generate random first name
+        ##First name 1387 lines
+        ##Last name 2671
         print("Generate Player initiated")
-        firstInd = random.randrange(0,4095)
+        firstInd = random.randrange(1,1387)
         print(firstInd)
-        lastInd = random.randrange(0,4095)
+        lastInd = random.randrange(1,2671)
         print(lastInd)
        
         
-        f = open("first-names.txt", "r")
+        f = open("NBA-playerlist.csv", "r")
         names = f.readlines()
         firstName = names[firstInd]
-        print(firstName)
+        lastName = names[lastInd]
+        firstName = firstName.split(",")
+        lastName = lastName.split(",")
+        print(firstName[0])
+        print(lastName[1])
         f.close()
-        l = open('last-names.txt', "r")
-        lastNames = l.readlines()
-        lastName = lastNames[lastInd]
-        print(lastName)
-        l.close()
     """self.fname(firstName)
         self.lname(lastName) """
         
