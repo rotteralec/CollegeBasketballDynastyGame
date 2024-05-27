@@ -28,21 +28,22 @@ def generateWT(pos):
     return wt
 
 def generateStats(pos, ht, wt):
-    midshooting = 0
-    postscoring = 0
-    deepthreeshooting = 0
-    threeptshooting = 0
-    dribbling = 0
-    speed = 0
-    strength = 0
-    interiordefense = 0
-    perimeterdefense = 0
-    steal = 0
-    block = 0
-    offrb = 0
-    defrb = 0
-    passing = 0
-    return []
+    statsDict = {}
+    statsDict["midshooting"] = random.randrange(0,100)
+    statsDict["postscoring"] = random.randrange(0,100)
+    statsDict["deepthreeshooting"] = random.randrange(0,100)
+    statsDict["threeptshooting"] = random.randrange(0,100)
+    statsDict["speed"] = random.randrange(0,100)
+    statsDict["strength"] = random.randrange(0,100)
+    statsDict["interiordefense"] = random.randrange(0,100)
+    statsDict["postscoring"] = random.randrange(0,100)
+    statsDict["perimeterdefense"] = random.randrange(0,100)
+    statsDict["steal"] = random.randrange(0,100)
+    statsDict["block"] = random.randrange(0,100)
+    statsDict["offrb"] = random.randrange(0,100)
+    statsDict["defrb"] = random.randrange(0,100)
+    statsDict["passing"] = random.randrange(0,100)
+    return statsDict
 
 def generateFirstName():
     ##First name 1387 lines
@@ -72,7 +73,7 @@ def generateType(pos, wt, ht):
     types = []
     match pos:
         case "PG":
-            ##playmaking ballhandler, scoring ball handler, lockdown d, non - defender
+            ##playmaking ballhandler, scoring ball handler, lockdown d, non - defender, sharpshooter
             if ht >76:
                 if wt > 215:
                     types.append("athlete")
@@ -80,17 +81,31 @@ def generateType(pos, wt, ht):
                 if wt<180:
                     types.append("non-defender")
                     types.append("scoring ball handler")
-                if wt
-
+                if wt>215:
+                    types.append("playmaking ballhandler")
+            if(bool(random.getrandbits(1))):
+                types.append("sharpshooter")
         case "SG":
             ##sharpshooter, secondary ball handler, non - defender
+            if(bool(random.getrandbits(1))):
+                types.append("sharpshooter")
         case "SF":
             ##3 and d, athlete, slashing wing, lock down wing, dynamic shooting wing, spot up shooting wing, playmaking wing
+            if(bool(random.getrandbits(1))):
+                types.append("sharpshooter")
         case "PF":
             ##stretch 4, lob man, athlete, d rb man, blocker, non - defender
+            if(bool(random.getrandbits(1))):
+                types.append("sharpshooter")
         case "C":
             ##shot blocker, rim runner, lob man, playmaking big, stretch5, d rb man, non defender
-    return wt
+            if(bool(random.getrandbits(1))):
+                types.append("sharpshooter")
+            if(bool(random.getrandbits(1))):
+                types.append("Shot Blocker")
+            if(bool(random.getrandbits(1))):
+                types.append("playmaking")
+    return types
 
 class Player:
     def __init__(self,pos):
@@ -101,6 +116,6 @@ class Player:
         self.ht = generateHT
         self.length = 3
         self.wt = generateWT(self.pos)
-        self.type = generateType()
+        #self.type = generateType()
         self.stats = []
         
