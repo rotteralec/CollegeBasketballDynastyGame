@@ -1,4 +1,8 @@
 import random
+
+statcat = ["midshooting", "postscoring", "deepthreeshooting","threeptshooting","speed","strength","interiordefense","perimeterdefense","steal","block","offrb","defrb","passing","FT Shooting"]
+
+
 def generateHT(pos):
     match pos:
         case "PG":
@@ -29,20 +33,20 @@ def generateWT(pos):
 
 def generateStats(pos, ht, wt):
     statsDict = {}
-    statsDict["midshooting"] = random.randrange(0,100)
-    statsDict["postscoring"] = random.randrange(0,100)
-    statsDict["deepthreeshooting"] = random.randrange(0,100)
-    statsDict["threeptshooting"] = random.randrange(0,100)
-    statsDict["speed"] = random.randrange(0,100)
-    statsDict["strength"] = random.randrange(0,100)
-    statsDict["interiordefense"] = random.randrange(0,100)
-    statsDict["postscoring"] = random.randrange(0,100)
-    statsDict["perimeterdefense"] = random.randrange(0,100)
-    statsDict["steal"] = random.randrange(0,100)
-    statsDict["block"] = random.randrange(0,100)
-    statsDict["offrb"] = random.randrange(0,100)
-    statsDict["defrb"] = random.randrange(0,100)
-    statsDict["passing"] = random.randrange(0,100)
+    statsDict["midshooting"] = random.randrange(20,100)
+    statsDict["postscoring"] = random.randrange(20,100)
+    statsDict["deepthreeshooting"] = random.randrange(20,100)
+    statsDict["threeptshooting"] = random.randrange(20,100)
+    statsDict["speed"] = random.randrange(20,100)
+    statsDict["strength"] = random.randrange(20,100)
+    statsDict["interiordefense"] = random.randrange(20,100)
+    statsDict["perimeterdefense"] = random.randrange(20,100)
+    statsDict["steal"] = random.randrange(20,100)
+    statsDict["block"] = random.randrange(20,100)
+    statsDict["offrb"] = random.randrange(20,100)
+    statsDict["defrb"] = random.randrange(20,100)
+    statsDict["passing"] = random.randrange(20,100)
+    statsDict["FT Shooting"] = random.randrange(20,100)
     return statsDict
 
 def generateFirstName():
@@ -113,9 +117,9 @@ class Player:
         self.fname = generateFirstName()
         self.lname = generateLastName()
         self.pos = pos
-        self.ht = generateHT
+        self.ht = generateHT(pos)
         self.length = 3
-        self.wt = generateWT(self.pos)
+        self.wt = generateWT(pos)
         #self.type = generateType()
-        self.stats = []
+        self.stats = generateStats(pos, self.ht, self.wt)
         

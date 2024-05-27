@@ -2,13 +2,18 @@ import dearpygui.dearpygui as dpg
 from Objects import *
 from Player import *
 
+global myRoster
+myRoster = []
+
 
 def GeneratePlayer():
     newPlayer = Player("PG")
     print(newPlayer.ht)
+    myRoster.append(newPlayer)
 
 dpg.create_context()
 
+GeneratePlayer()
 ##Main window
 with dpg.window(label="Main"):
 
@@ -33,6 +38,8 @@ with dpg.window(label="Main"):
     
     with dpg.table(header_row=True, resizable=True, policy=dpg.mvTable_SizingStretchProp,
                    borders_outerH=True, borders_innerV=True, borders_innerH=True, borders_outerV=True):
+        ##Player stats start at index 5
+        dpg.add_table_column(label="Player ID")
         dpg.add_table_column(label="Player First Name")
         dpg.add_table_column(label="Player Last Name")
         dpg.add_table_column(label="Player Position")
@@ -46,19 +53,35 @@ with dpg.window(label="Main"):
         dpg.add_table_column(label="speed")
         dpg.add_table_column(label="strength")
         dpg.add_table_column(label="interiordefense")
-        dpg.add_table_column(label="postscoring")
         dpg.add_table_column(label="perimeterdefense")
         dpg.add_table_column(label="steal")
         dpg.add_table_column(label="block")
         dpg.add_table_column(label="offrb")
         dpg.add_table_column(label="defrb")
         dpg.add_table_column(label="passing")
-        for i in range(0,4):
+        dpg.add_table_column(label="FT Shooting")
+        for i in myRoster:
             with dpg.table_row():
-                for j in range(0,20):
+                for j in range(0,22):
                     with dpg.table_cell():
-                        dpg.add_button(label=f"Row{i} Column{j} a")
-                        dpg.add_button(label=f"Row{i} Column{j} b")
+                        if(j<1):
+                            dpg.add_button(label=f"{i.id}")
+                        if(j==1):
+                            dpg.add_button(label=f"{i.fname}")
+                        if(j==2):
+                            dpg.add_button(label=f"{i.lname}")
+                        if(j==3):
+                            dpg.add_button(label=f"{i.pos}")
+                        if(j==4):
+                            dpg.add_button(label=f"{i.ht}")
+                        if(j==5):
+                            dpg.add_button(label=f"{i.wt}")
+                            
+                        if(j==6):
+                            dpg.add_button(label=f"{i.length}")
+                        if(21>j>6):
+                            cat = statcat[j-7]
+                            dpg.add_button(label=f"{i.stats[cat]}")
 
 
 
