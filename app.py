@@ -4,7 +4,7 @@ from Objects import *
 
 def GeneratePlayer():
     newPlayer = Player()
-    newPlayer.generatePlayer()
+    print(newPlayer.ht)
 
 dpg.create_context()
 
