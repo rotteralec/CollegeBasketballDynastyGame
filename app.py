@@ -11,13 +11,26 @@ def GeneratePlayer(pos):
     print(newPlayer.ht)
     myRoster.append(newPlayer)
 
+def GenerateRoster():
+    GeneratePlayer("PG")
+    GeneratePlayer("SG")
+    GeneratePlayer("SF")
+    GeneratePlayer("PF")
+    GeneratePlayer("C")
+    GeneratePlayer("PG")
+    GeneratePlayer("SG")
+    GeneratePlayer("SF")
+    GeneratePlayer("PF")
+    GeneratePlayer("C")
+    GeneratePlayer("SG")
+    GeneratePlayer("PF")
+    GeneratePlayer("C")
+
+GenerateRoster()
+
 dpg.create_context()
 
-GeneratePlayer("PG")
-GeneratePlayer("SG")
-GeneratePlayer("SF")
-GeneratePlayer("PF")
-GeneratePlayer("C")
+
 ##Main window
 with dpg.window(label="Main"):
 
