@@ -18,11 +18,4 @@ class School:
         """For School ID number"""
         return self.id
 
-class Team(School):
-        
-    def _init_(self, id, name, roster, coaches, recruits):
-        super().__init__(id, name)
-        self.roster = roster
-        self.coaches = coaches
-        self.recruits = recruits
 

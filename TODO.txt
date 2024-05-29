@@ -1,0 +1,6 @@
+add an overall rating for players based on Stats 
+    change overall rating to be based on position and what is important to that position
+        https://www.reddit.com/r/NBA2k/comments/5zl48j/the_secrets_of_overall/
+Create city versions of all schools with prestiges and info
+Add rivals to schools
+Do we need school vs team?
