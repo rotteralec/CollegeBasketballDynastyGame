@@ -33,20 +33,40 @@ def generateWT(pos):
 
 def generateStats(pos, ht, wt):
     statsDict = {}
+    overall = 0
+    statsDict["Overall"] = overall
     statsDict["midshooting"] = random.randrange(20,100)
+    overall = overall + statsDict["midshooting"]
     statsDict["postscoring"] = random.randrange(20,100)
+    overall = overall + statsDict["postscoring"]
     statsDict["deepthreeshooting"] = random.randrange(20,100)
+    overall = overall + statsDict["deepthreeshooting"]
     statsDict["threeptshooting"] = random.randrange(20,100)
+    overall = overall + statsDict["threeptshooting"]
     statsDict["speed"] = random.randrange(20,100)
+    overall = overall + statsDict["speed"]
     statsDict["strength"] = random.randrange(20,100)
+    overall = overall + statsDict["strength"]
     statsDict["interiordefense"] = random.randrange(20,100)
+    overall = overall + statsDict["interiordefense"]
     statsDict["perimeterdefense"] = random.randrange(20,100)
+    overall = overall + statsDict["perimeterdefense"]
     statsDict["steal"] = random.randrange(20,100)
+    overall = overall + statsDict["steal"]
     statsDict["block"] = random.randrange(20,100)
+    overall = overall + statsDict["block"]
     statsDict["offrb"] = random.randrange(20,100)
+    overall = overall + statsDict["offrb"]
     statsDict["defrb"] = random.randrange(20,100)
+    overall = overall + statsDict["defrb"]
     statsDict["passing"] = random.randrange(20,100)
+    overall = overall + statsDict["passing"]
     statsDict["FT Shooting"] = random.randrange(20,100)
+    overall = overall + statsDict["FT Shooting"]
+    overall = overall / 14
+    statsDict["Overall"] = overall
+    print("Overall: ")
+    print(overall)
     return statsDict
 
 def generateFirstName():
@@ -54,7 +74,6 @@ def generateFirstName():
 
     print("Generate Player initiated")
     firstInd = random.randrange(1,1387)
-    print(firstInd)
     f = open("NBA-playerlist.csv", "r")
     names = f.readlines()
     firstName = names[firstInd]

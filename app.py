@@ -28,3 +28,8 @@ def GenerateRoster():
     newTeam = Team("Spartans", myRoster, [])
 
 GenerateRoster()
+
+
+
+
+print()
