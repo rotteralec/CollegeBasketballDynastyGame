@@ -26,3 +26,4 @@ class School:
         self.location = "East Lansing, MI"
         self.boosters = []
         self.schedule = []
+        self.conference = "Big Ten"
