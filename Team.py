@@ -1,12 +1,11 @@
 
 import random
-
-
-class Team():
+from Coach import *
+class Team:
         
-    def _init_(self, id, name, roster, coaches, recruits):
-        self.id = id
+    def __init__(self, name, roster, recruits):
+        self.id = 0
         self.name = name
         self.roster = roster
-        self.coaches = coaches
+        self.coach = Coach("Bomb Rizzo")
         self.recruits = recruits
