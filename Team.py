@@ -9,3 +9,5 @@ class Team:
         self.roster = roster
         self.coach = Coach("Bomb Rizzo")
         self.recruits = recruits
+        self.wins = 0
+        self.losses = 0
