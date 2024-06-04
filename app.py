@@ -7,29 +7,16 @@ import json
 ##174 id is msu in Schools.csv
 global myRoster
 myRoster = []
+global standings
+standings = {}
 
 
-def GeneratePlayer(pos):
-    newPlayer = Player(pos)
-    print(newPlayer.ht)
-    myRoster.append(newPlayer)
+def updateStandings():
+    prevWin = 0
+"""     for i in standings:
+        if i.wins > prev  """
 
-def GenerateRoster():
-    GeneratePlayer("PG")
-    GeneratePlayer("SG")
-    GeneratePlayer("SF")
-    GeneratePlayer("PF")
-    GeneratePlayer("C")
-    GeneratePlayer("PG")
-    GeneratePlayer("SG")
-    GeneratePlayer("SF")
-    GeneratePlayer("PF")
-    GeneratePlayer("C")
-    GeneratePlayer("SG")
-    GeneratePlayer("PF")
-    GeneratePlayer("C")
-    newTeam = Team("Spartans", myRoster, [])
-    return newTeam
+
 
 def adjustRecord(_game):
     if (_game.homescore > _game.awayscore):
@@ -38,28 +25,24 @@ def adjustRecord(_game):
     if (_game.homescore < _game.awayscore):
         _game.away.wins += 1
         _game.home.losses += 1
+
+    #need to update standings
     return
 
 def runSeason(team1, team2):
     for i in range(16):
-        newGame = Game(myTeam, rivalTeam, i, 0)
+        newGame = Game(team1, team2, i, 0)
         newGame.playGame()
         adjustRecord(newGame)
-        newGame2 = Game(rivalTeam, myTeam, i, 0)
+        newGame2 = Game(team2, team1, i, 0)
         newGame.playGame()
         adjustRecord(newGame)
 
 
     
+resetSave("testsave.json")
 
-myTeam = GenerateRoster()
-rivalTeam = rosterGen()
+myRosterID = genConference("Big Ten")
+myConf = readRoster("testsave.json")
+print(myConf[str(121)])
 
-runSeason(myTeam,rivalTeam)
-
-
-
-
-
-
-print()

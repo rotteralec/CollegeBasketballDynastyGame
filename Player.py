@@ -65,22 +65,18 @@ def generateStats(pos, ht, wt):
     overall = overall + statsDict["FT Shooting"]
     overall = overall / 14
     statsDict["Overall"] = overall
-    print("Overall: ")
-    print(overall)
     return statsDict
 
 def generateFirstName():
     ##First name 1387 lines
 
-    print("Generate Player initiated")
     firstInd = random.randrange(1,1387)
     f = open("NBA-playerlist.csv", "r")
     names = f.readlines()
     firstName = names[firstInd]
     firstName = firstName.split(",")
-    print(firstName[0])
     f.close()
-    return firstName[0]
+    return firstName[0].strip()
 
 def generateLastName():
         ##Last name 2671
@@ -89,9 +85,8 @@ def generateLastName():
     names = f.readlines()
     lastName = names[lastInd]
     lastName = lastName.split(",")
-    print(lastName[1])
     f.close()
-    return lastName[1]
+    return lastName[1].strip()
 def generateType(pos, wt, ht):
     types = []
     match pos:
@@ -131,8 +126,8 @@ def generateType(pos, wt, ht):
     return types
 
 class Player:
-    def __init__(self,pos):
-        self.id = 0
+    def __init__(self,id,pos):
+        self.id = id
         self.fname = generateFirstName()
         self.lname = generateLastName()
         self.pos = pos
@@ -140,5 +135,15 @@ class Player:
         self.length = 3
         self.wt = generateWT(pos)
         #self.type = generateType()
+        self.overall = 0
         self.stats = generateStats(pos, self.ht, self.wt)
+
+    def trainPlayer(self):
+        for i in self.stats.values():
+            i += random.randrange(1,5)
+
+    def calcOverall(self):
+        self.overall = random.randrange(50,99)
+
+
         
