@@ -17,7 +17,6 @@ def updateStandings():
         if i.wins > prev  """
 
 
-
 def adjustRecord(_game):
     if (_game.homescore > _game.awayscore):
         _game.home.wins += 1
@@ -40,9 +39,5 @@ def runSeason(team1, team2):
 
 
     
-resetSave("testsave.json")
 
-myRosterID = genConference("Big Ten")
-myConf = readRoster("testsave.json")
-print(myConf[str(121)])
 

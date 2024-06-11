@@ -16,6 +16,7 @@ Roster = []
 bten = [121, 173, 174, 162, 222, 231, 251, 241, 117, 217, 355, 124, 177, 345, 192, 279, 323, 228]
 global conf 
 conf = {}
+global playerCount
 
 def GeneratePlayer(id, pos):
     newPlayer = Player(id, pos)
@@ -65,6 +66,7 @@ def genConference(conf):
             return 174
 
                 
+#def toMyRoster(ros):
 
 
 
@@ -87,7 +89,7 @@ def saveRoster(rost):
         conf[rost.id] = tDict
         json.dump(conf, outfile)
 
-def readRoster(file):
+def readSave(file):
     with open("testsave.json", "r") as openfile:
         return json.load(openfile)
 

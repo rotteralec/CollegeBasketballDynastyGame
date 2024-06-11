@@ -1,38 +1,25 @@
 import dearpygui.dearpygui as dpg
-from Objects import *
-from Player import *
-from Team import *
-
-global myRoster
-myRoster = []
+from App import *
+from DynastyGenerator import *
+import json
 
 
-def GeneratePlayer(pos):
-    newPlayer = Player(pos)
-    print(newPlayer.ht)
-    myRoster.append(newPlayer)
+def loadRoster(id, conf):
+    for i,j in conf[str(id)]:
+        print(j)
 
-def GenerateRoster():
-    GeneratePlayer("PG")
-    GeneratePlayer("SG")
-    GeneratePlayer("SF")
-    GeneratePlayer("PF")
-    GeneratePlayer("C")
-    GeneratePlayer("PG")
-    GeneratePlayer("SG")
-    GeneratePlayer("SF")
-    GeneratePlayer("PF")
-    GeneratePlayer("C")
-    GeneratePlayer("SG")
-    GeneratePlayer("PF")
-    GeneratePlayer("C")
-    newTeam = Team("Spartans", myRoster, [])
+resetSave("testsave.json")
 
-GenerateRoster()
+myRosterID = genConference("Big Ten")
+myConf = readSave("testsave.json")
+""" print("MSU'S ROSTER: ")
+print(myConf[str(myRosterID)])
+print("MICHIGAN's ROSTER: ")
+print(myConf[str(173)]) """
+myTeam = loadRoster(myRosterID, myConf)
+
 
 dpg.create_context()
-
-
 ##Main window
 with dpg.window(label="Main"):
 
