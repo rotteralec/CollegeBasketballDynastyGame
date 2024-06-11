@@ -18,5 +18,7 @@ class Coach():
     def __init__(self, name):
         self.id = 0
         self.name = name
+        self.role = "H"
         self.stats = GenerateStats()
         self.level = 0
+        self.recAcc = 3

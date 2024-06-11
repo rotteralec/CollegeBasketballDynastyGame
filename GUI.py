@@ -5,8 +5,8 @@ import json
 
 
 def loadRoster(id, conf):
-    for i,j in conf[str(id)]:
-        print(j)
+    for i in conf[str(id)]:
+        print(i["fname"])
 
 resetSave("testsave.json")
 
