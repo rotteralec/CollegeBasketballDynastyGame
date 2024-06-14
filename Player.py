@@ -125,6 +125,14 @@ def generateType(pos, wt, ht):
                 types.append("playmaking")
     return types
 
+
+
+
+
+
+
+
+
 class Player:
     def __init__(self,id,pos):
         self.id = id

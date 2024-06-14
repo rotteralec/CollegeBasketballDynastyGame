@@ -97,15 +97,16 @@ with dpg.window(label="Recruiting"):
     with dpg.menu_bar():
         dpg.add_menu_item(label="Available Targets")
         dpg.add_menu_item(label="My Targets")
-        dpg.add_menu_item(label="Calendar")
+        dpg.add_menu_item(label="My Commits")
+        dpg.add_menu_item(label="Outstanding Offers")
         dpg.add_menu_item(label="Class Rankings")
 
 ##Schedule window
-with dpg.window(label="Schedule"):
+with dpg.window(label="Training"):
     with dpg.menu_bar():
         dpg.add_menu_item(label="Practice")
         dpg.add_menu_item(label="Depth Chart")
-        dpg.add_menu_item(label="Calendar")
+        dpg.add_menu_item(label="Game Plan")
     dpg.add_button(enabled=True, label="Save and Advance to next game")
             
 

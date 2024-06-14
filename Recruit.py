@@ -1,4 +1,5 @@
 import random
+from Player import *
 ##Needs vague stat potentials AND recruit priorities
 
 ##Priorities: Proximity to home, School Prestige, Stadium Atmos, Facilities, College Life, Academics
@@ -21,10 +22,7 @@ class Recruit:
 
 
 
-    def __init__(self):
-        self.id = 0
-        self.fname = "Test"
-        self.lname = "Test"
-        self.pos = "PG"
+    def __init__(self, id, pos):
         self.priorities = genPriority()
-        self.stats = []
+        self.player = Player(id, pos)
+        self.schools = []
