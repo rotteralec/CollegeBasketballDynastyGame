@@ -13,7 +13,7 @@ import os
 
 global Roster
 Roster = []
-bten = [121, 173, 174, 162, 222, 231, 251, 241, 117, 217, 355, 124, 177, 345, 192, 279, 323, 228]
+bten = [121, 174]#, 173, 162, 222, 231, 251, 241, 117, 217, 355, 124, 177, 345, 192, 279, 323, 228]
 global conf 
 conf = {}
 global playerCount
@@ -22,11 +22,6 @@ def GeneratePlayer(id, pos):
     newPlayer = Player(id, pos)
     newPlayer.calcOverall()
     Roster.append(newPlayer)
-
-
-
-
-
 
 
 
@@ -75,6 +70,11 @@ def unpackPlayer(_player):
     tDict = {}
     tDict = {"fname":_player.fname, "lname": _player.lname, "pos": _player.pos, "ht": _player.ht, "ln": _player.length, "wt": _player.wt, "overall": _player.overall, "stats": _player.stats}
     return tDict
+
+def loadPlayer(_id, _player):
+    tPlayer = Player(_id, _player["pos"])
+    tPlayer.reLoad(_player["fname"], _player["lname"], _player["pos"], _player["ht"], _player["ln"], _player["wt"], _player["overall"], _player["stats"])
+    return tPlayer
 
 
 def saveRoster(rost):

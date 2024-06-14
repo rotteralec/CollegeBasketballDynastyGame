@@ -145,5 +145,15 @@ class Player:
     def calcOverall(self):
         self.overall = random.randrange(50,99)
 
+    def reLoad(self, fname, lname, pos, ht, length, wt, overall, stats):
+        self.fname = fname
+        self.lname = lname
+        self.pos = pos
+        self.ht = ht
+        self.length = length
+        self.wt = wt
+        self.overall = overall
+        self.stats = stats
+
 
         

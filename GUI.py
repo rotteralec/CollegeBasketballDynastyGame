@@ -3,10 +3,11 @@ from App import *
 from DynastyGenerator import *
 import json
 
-
+myRoster = []
 def loadRoster(id, conf):
-    for i in conf[str(id)]:
-        print(i["fname"])
+    for i,k in conf[str(id)].items():
+        tPlayer = loadPlayer(i,k)
+        myRoster.append(tPlayer)
 
 resetSave("testsave.json")
 
@@ -16,7 +17,7 @@ myConf = readSave("testsave.json")
 print(myConf[str(myRosterID)])
 print("MICHIGAN's ROSTER: ")
 print(myConf[str(173)]) """
-myTeam = loadRoster(myRosterID, myConf)
+tRoster =loadRoster(myRosterID, myConf)
 
 
 dpg.create_context()
