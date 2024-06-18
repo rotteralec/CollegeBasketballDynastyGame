@@ -3,4 +3,4 @@ add an overall rating for players based on Stats
         https://www.reddit.com/r/NBA2k/comments/5zl48j/the_secrets_of_overall/
 Create city versions of all schools with prestiges and info
 Add rivals to schools
-Do we need school vs team?
+**Get a basic full season working

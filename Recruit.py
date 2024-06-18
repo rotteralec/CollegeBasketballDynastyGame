@@ -17,6 +17,10 @@ def genPriority():
     random.shuffle(prio)
     return prio
 
+
+def genFirstFive():
+    
+
 class Recruit:
 
 
@@ -26,3 +30,5 @@ class Recruit:
         self.priorities = genPriority()
         self.player = Player(id, pos)
         self.schools = []
+        self.location = 48154
+        self.hs = True

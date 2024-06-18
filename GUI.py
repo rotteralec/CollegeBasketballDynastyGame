@@ -107,7 +107,7 @@ with dpg.window(label="Training"):
         dpg.add_menu_item(label="Practice")
         dpg.add_menu_item(label="Depth Chart")
         dpg.add_menu_item(label="Game Plan")
-    dpg.add_button(enabled=True, label="Save and Advance to next game")
+    #dpg.add_button(enabled=True, label="Save and Advance to next game")
             
 
 
