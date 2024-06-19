@@ -142,7 +142,7 @@ with dpg.window(label="Recruiting"):
                         if(j==8):
                             dpg.add_button(label=f"{i.getSchools()[0][3]}")
                         if(j==9):
-                            dpg.add_listbox(items=["Head Coach Call", "Head Coach Text", "Assistant Coach Call", "Assistant Coach Text"])
+                            dpg.add_listbox(items=["Head Coach Call", "Head Coach Text", "Assistant Coach Call", "Assistant Coach Text"]) #Add recruit action score to each option
                             
 
 

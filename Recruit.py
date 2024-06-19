@@ -56,7 +56,13 @@ class Recruit:
         return self.player
     def getSchools(self):
         return self.schools
+    
+    def getMySchoolInfo(self, _schoolID): #need to implement a ?Global? my school id for seasons.
+        for i in self.schools:
+            if i[0] is _schoolID:
+                return i
+
     def getPriority(self):
         return self.priorities
-    def addSchool(self, schoolID):
-        self.schools.append(newSchool(random.randrange(0,361)))
+    def addSchool(self, _schoolID):
+        self.schools.append(newSchool(_schoolID))
