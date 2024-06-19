@@ -66,6 +66,7 @@ def genConference(conf):
 
 def genRecruit(_id, _pos):
     tRecruit = Recruit(_id, _pos)
+    tRecruit.getPlayer().calcOverall()
     return tRecruit
 
 
