@@ -4,6 +4,7 @@ from Team import *
 from Player import *
 import json
 import os
+from Recruit import *
 #ideas for whats needed in the save file 
 #your school id
 #roster
@@ -62,6 +63,30 @@ def genConference(conf):
 
                 
 #def toMyRoster(ros):
+
+def genRecruit(_id, _pos):
+    tRecruit = Recruit(_id, _pos)
+    return tRecruit
+
+
+
+
+def genClass():
+    tClass = []
+    tClass.append(genRecruit(0, "PG"))
+    tClass.append(genRecruit(1, "SG"))
+    tClass.append(genRecruit(2, "SF"))
+    tClass.append(genRecruit(3, "PF"))
+    tClass.append(genRecruit(4, "C"))
+    tClass.append(genRecruit(5, "PG"))
+    tClass.append(genRecruit(6, "SG"))
+    tClass.append(genRecruit(7, "SF"))
+    tClass.append(genRecruit(8, "PF"))
+    tClass.append(genRecruit(9, "C"))
+    tClass.append(genRecruit(10, "SG"))
+    tClass.append(genRecruit(11, "PF"))
+    tClass.append(genRecruit(12, "C"))
+    return tClass
 
 
 

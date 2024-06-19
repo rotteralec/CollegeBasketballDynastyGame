@@ -18,7 +18,18 @@ def genPriority():
     return prio
 
 
+##[SchoolID, interest level, visit, offer]
 def genFirstFive():
+    tList = []
+    for i in range(0,5):
+        sch = random.randrange(0,361)
+        tSch = [sch]
+        tSch.append(random.randrange(0,100))
+        tSch.append(False)
+        tSch.append(False)
+        tList.append(tSch)
+    return tList
+
     
 
 class Recruit:
@@ -29,6 +40,15 @@ class Recruit:
     def __init__(self, id, pos):
         self.priorities = genPriority()
         self.player = Player(id, pos)
-        self.schools = []
+        self.schools = genFirstFive()
         self.location = 48154
         self.hs = True
+
+
+
+    def getPlayer(self):
+        return self.player
+    def getSchools(self):
+        return self.schools
+    def getPriority(self):
+        return self.priorities

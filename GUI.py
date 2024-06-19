@@ -18,6 +18,7 @@ print(myConf[str(myRosterID)])
 print("MICHIGAN's ROSTER: ")
 print(myConf[str(173)]) """
 tRoster =loadRoster(myRosterID, myConf)
+curClass = genClass()
 
 
 dpg.create_context()
@@ -100,6 +101,47 @@ with dpg.window(label="Recruiting"):
         dpg.add_menu_item(label="My Commits")
         dpg.add_menu_item(label="Outstanding Offers")
         dpg.add_menu_item(label="Class Rankings")
+    with dpg.table(header_row=True, resizable=True, policy=dpg.mvTable_SizingStretchProp,
+                   borders_outerH=True, borders_innerV=True, borders_innerH=True, borders_outerV=True):
+        ##Player stats start at index 5
+        dpg.add_table_column(label="Player ID")
+        dpg.add_table_column(label="Player First Name")
+        dpg.add_table_column(label="Player Last Name")
+        dpg.add_table_column(label="Player Position")
+        dpg.add_table_column(label="School ")
+        dpg.add_table_column(label="Overall")
+        dpg.add_table_column(label="Priority")
+        dpg.add_table_column(label="Offer")
+        dpg.add_table_column(label="NIL")
+        dpg.add_table_column(label="Action")
+        for i in curClass:
+            with dpg.table_row():
+                for j in range(0, 10):
+                    with dpg.table_cell():
+                        if(j<1):
+                            dpg.add_button(label=f"{i.getPlayer().id}")
+                        if(j==1):
+                            dpg.add_button(label=f"{i.getPlayer().fname}")
+                        if(j==2):
+                            dpg.add_button(label=f"{i.getPlayer().lname}")
+                        if(j==3):
+                            dpg.add_button(label=f"{i.getPlayer().pos}")
+                        if(j==4):
+                            dpg.add_button(label=f"{i.getSchools()[0]}")
+                        if(j==5):
+                            dpg.add_button(label=f"{i.getPlayer().overall}")
+                        if(j==6):
+                            dpg.add_button(label=f"{i.getPriority()[0]}")
+                        if(j==7):
+                            dpg.add_button(label=f"No Offer")
+                        if(j==8):
+                            dpg.add_button(label=f"No NIL Offer")
+                        if(j==9):
+                            dpg.add_listbox(items=["Head Coach Call", "Head Coach Text", "Assistant Coach Call", "Assistant Coach Text"])
+                            
+
+
+    
 
 ##Schedule window
 with dpg.window(label="Training"):
