@@ -49,6 +49,7 @@ class Recruit:
         self.schools = genFirstFive()
         self.location = 48154
         self.hs = True
+        self.id = self.player.id
 
 
 

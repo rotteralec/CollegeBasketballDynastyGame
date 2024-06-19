@@ -21,3 +21,8 @@ class Team:
         self.recruits.append(_recruit)
         _recruit.addSchool(self.id)
 
+    def getTargetedRecruit(self, _recruitID):
+        for i in self.recruits:
+            if i.id is _recruitID:
+                return i
+
