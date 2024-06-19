@@ -17,19 +17,23 @@ def genPriority():
     random.shuffle(prio)
     return prio
 
+def newSchool(schoolID):
+    tSch = []
+
+    tSch.append(schoolID)#school id 0-361
+    tSch.append(random.randrange(0,100)) #interest score for your team 
+    tSch.append(0)#Total recruiting score
+    tSch.append(0)#Total NIL Offered from School ID
+    tSch.append(False)#Boolean for visit (probably change to visit object or simple arr when implemented) Needs date, bonus points calc by opponent outcome etc., 
+    tSch.append(False)#Boolean for offer given
+    return tSch
 
 ##[SchoolID, interest level, recruiting score, NIL, visit, offer]
 def genFirstFive():
     tList = []
     for i in range(0,5):
-        sch = random.randrange(0,361)
-        tSch = [sch]
-        tSch.append(random.randrange(0,100))
-        tSch.append(0)
-        tSch.append(0)
-        tSch.append(False)
-        tSch.append(False)
-        tList.append(tSch)
+        sch = newSchool(random.randrange(0,361))
+        tList.append(sch)
     return tList
 
     
@@ -54,3 +58,5 @@ class Recruit:
         return self.schools
     def getPriority(self):
         return self.priorities
+    def addSchool(self, schoolID):
+        self.schools.append(newSchool(random.randrange(0,361)))
