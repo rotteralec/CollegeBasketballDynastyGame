@@ -10,7 +10,13 @@ def genSched(conf):
 
 
 def genNonCon():
-    return
+    ##Need to exclude conference opponents (maybe run after and check if in conf schedule then rerun if so)
+    tSched = []
+    for i in range(0,8):
+        newGame = Game(174,random.randrange(0,361),i,0)
+        tSched.append(newGame)
+    return tSched
+
 
 def genCon(conf):
     ##16 games in big ten
@@ -21,6 +27,7 @@ def genCon(conf):
             for i in range(16):
                 newGame = Game(174, 173, 1, 0)
                 temp.append(newGame)
+    return temp
 
 
     

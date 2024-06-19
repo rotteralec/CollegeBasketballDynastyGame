@@ -155,6 +155,11 @@ with dpg.window(label="Training"):
         dpg.add_menu_item(label="Depth Chart")
         dpg.add_menu_item(label="Game Plan")
     #dpg.add_button(enabled=True, label="Save and Advance to next game")
+
+#game window Will be shown only when advanced to simulating game
+#with dpg.window(label="Current Game"):
+ #   with dpg.menu_bar():
+  #      dpg.add_menu_item(label="")
             
 
 

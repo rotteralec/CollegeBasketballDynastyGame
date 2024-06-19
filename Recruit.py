@@ -67,3 +67,10 @@ class Recruit:
         return self.priorities
     def addSchool(self, _schoolID):
         self.schools.append(newSchool(_schoolID))
+
+    def checkSchool(self, _schoolID):
+        ret = False
+        for i in self.schools:
+            if i[0] is _schoolID:
+                return True
+        return ret
