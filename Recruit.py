@@ -18,13 +18,15 @@ def genPriority():
     return prio
 
 
-##[SchoolID, interest level, visit, offer]
+##[SchoolID, interest level, recruiting score, NIL, visit, offer]
 def genFirstFive():
     tList = []
     for i in range(0,5):
         sch = random.randrange(0,361)
         tSch = [sch]
         tSch.append(random.randrange(0,100))
+        tSch.append(0)
+        tSch.append(0)
         tSch.append(False)
         tSch.append(False)
         tList.append(tSch)

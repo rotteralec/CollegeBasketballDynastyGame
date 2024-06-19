@@ -9,6 +9,11 @@ def loadRoster(id, conf):
         tPlayer = loadPlayer(i,k)
         myRoster.append(tPlayer)
 
+
+
+
+
+##run backend##
 resetSave("testsave.json")
 
 myRosterID = genConference("Big Ten")
@@ -135,7 +140,7 @@ with dpg.window(label="Recruiting"):
                         if(j==7):
                             dpg.add_button(label=f"No Offer")
                         if(j==8):
-                            dpg.add_button(label=f"No NIL Offer")
+                            dpg.add_button(label=f"{i.getSchools()[0][3]}")
                         if(j==9):
                             dpg.add_listbox(items=["Head Coach Call", "Head Coach Text", "Assistant Coach Call", "Assistant Coach Text"])
                             
