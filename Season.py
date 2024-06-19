@@ -26,3 +26,14 @@ def genGameday(_game):
     temp_arr.append(False)
     temp_arr.append(False)
     return temp_arr
+
+
+
+
+
+class Season:
+
+
+    def __init__(self, _season):
+        self.season = _season
+        
