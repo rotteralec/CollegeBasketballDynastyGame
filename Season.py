@@ -27,6 +27,21 @@ def genGameday(_game):
     temp_arr.append(False)
     return temp_arr
 
+# [HC RAL, OC RAL, DC RAL] With Transfers
+#players leaving for draft?
+#1 draft
+#players transferring
+#3 offseason recruiting sections with transfers (start after draft for now to make it easier)
+
+def genOffseason():
+    tOS = []
+    tOS.append("Draft?")
+    tOS.append("Draft")
+    tOS.append("Transfer?")
+    tOS.append([1])
+    tOS.append([2])
+    tOS.append([3])
+    return tOS
 
 
 
@@ -36,4 +51,35 @@ class Season:
 
     def __init__(self, _season):
         self.season = _season
+        self.timeFrame = 0
+        self.Gameday = genGameday(_season[0])
+        self.Offseason = genOffseason()
+    
+
+    def advanceOffSeason(self):
+        if self.Offseason[0] is "Draft?":
+            ##Covince players to not go to draft 
+            self.Offseason.pop()
+            return "Draft?"
+        if self.Offseason[0] is "Draft":
+            return "Draft"
+
+        if self.Offseason[0] is "Transfer":
+            return "Transfer"
         
+        elif self.Offseason[0][0] is 1:
+            return "Recruiting"
+
+
+
+    def advanceSeason(self):
+        #start with 0 in season and then go from there
+        self.timeFrame += 1
+        if self.timeFrame < 30:
+            self.Gameday = genGameday(self.season[self.timeFrame])
+        if self.timeFrame >= 30:
+            OffSeason = self.advanceOffSeason()
+        if self.timeFrame >= 36:
+            #advance season
+
+
