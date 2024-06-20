@@ -12,7 +12,6 @@ def loadRoster(id, conf):
 
 
 
-
 ##run backend##
 resetSave("testsave.json")
 
@@ -162,10 +161,19 @@ with dpg.window(label="Training"):
         dpg.add_menu_item(label="Game Plan")
     #dpg.add_button(enabled=True, label="Save and Advance to next game")
 
+
+
+def callbackSimWeekGame(sender, data):
+    print(sender)
+    print(data)
+
 #game window Will be shown only when advanced to simulating game
-#with dpg.window(label="Current Game"):
- #   with dpg.menu_bar():
-  #      dpg.add_menu_item(label="")
+with dpg.window(label="Current Game"):
+    tStr = "Michigan"
+    dpg.add_text("Next Game: ")
+    dpg.add_text(tStr)
+    dpg.add_button(label="Sim Game and Advance week", callback=callbackSimWeekGame)
+
             
 
 
