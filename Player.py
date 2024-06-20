@@ -126,7 +126,12 @@ def generateType(pos, wt, ht):
     return types
 
 
+def genYear():
+    tYear = [0,1,2,3,4,5,6,7]
+    ret = 0
+    ret = random.choices(tYear, weights=(10,10,10,10,10,10,10,10),k=1)[0]
 
+    return ret
 
 
 
@@ -139,6 +144,7 @@ class Player:
         self.fname = generateFirstName()
         self.lname = generateLastName()
         self.pos = pos
+        self.year = genYear() ##evens are non redshirt 0,2,4,6 f,s,j,s odds are redshirt rsf,rss,rsj,rss
         self.ht = generateHT(pos)
         self.length = 3
         self.wt = generateWT(pos)
@@ -153,10 +159,11 @@ class Player:
     def calcOverall(self):
         self.overall = random.randrange(50,99)
 
-    def reLoad(self, fname, lname, pos, ht, length, wt, overall, stats):
+    def reLoad(self, fname, lname, pos, year, ht, length, wt, overall, stats):
         self.fname = fname
         self.lname = lname
         self.pos = pos
+        self.year = year
         self.ht = ht
         self.length = length
         self.wt = wt

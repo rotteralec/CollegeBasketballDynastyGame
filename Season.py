@@ -62,14 +62,28 @@ class Season:
             self.Offseason.pop()
             return "Draft?"
         if self.Offseason[0] is "Draft":
+            self.Offseason.pop()
             return "Draft"
 
         if self.Offseason[0] is "Transfer":
+            self.Offseason.pop()
             return "Transfer"
         
         elif self.Offseason[0][0] is 1:
-            return "Recruiting"
+            self.Offseason.pop()
+            return "Recruiting 1"
+        
+        elif self.Offseason[0][0] is 2:
+            self.Offseason.pop()
+            return "Recruiting 2"
+        
+        elif self.OffSeason[0][0] is 3:
+            self.Offseason.pop()
+            return "Recruiting 3"
 
+    def newSeason(self):
+        #need to archive current season and build new one
+        return
 
 
     def advanceSeason(self):
@@ -81,5 +95,6 @@ class Season:
             OffSeason = self.advanceOffSeason()
         if self.timeFrame >= 36:
             #advance season
+            self.newSeason()
 
 

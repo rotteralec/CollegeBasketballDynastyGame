@@ -56,6 +56,7 @@ with dpg.window(label="Main"):
         dpg.add_table_column(label="Player First Name")
         dpg.add_table_column(label="Player Last Name")
         dpg.add_table_column(label="Player Position")
+        dpg.add_table_column(label="Year")
         dpg.add_table_column(label="Player HT")
         dpg.add_table_column(label="Player WT")
         dpg.add_table_column(label="Player Length")
@@ -86,14 +87,19 @@ with dpg.window(label="Main"):
                         if(j==3):
                             dpg.add_button(label=f"{i.pos}")
                         if(j==4):
-                            dpg.add_button(label=f"{i.ht}")
+                            dpg.add_button(label=f"{i.year}")
                         if(j==5):
-                            dpg.add_button(label=f"{i.wt}")
+                            dpg.add_button(label=f"{i.ht}")
+                            
                             
                         if(j==6):
+                            dpg.add_button(label=f"{i.wt}")
+                            
+
+                        if(j ==7):
                             dpg.add_button(label=f"{i.length}")
-                        if(21>j>6):
-                            cat = statcat[j-7]
+                        if(22>j>7):
+                            cat = statcat[j-8]
                             dpg.add_button(label=f"{i.stats[cat]}")
 
 

@@ -94,12 +94,12 @@ def genClass():
 
 def unpackPlayer(_player):
     tDict = {}
-    tDict = {"fname":_player.fname, "lname": _player.lname, "pos": _player.pos, "ht": _player.ht, "ln": _player.length, "wt": _player.wt, "overall": _player.overall, "stats": _player.stats}
+    tDict = {"fname":_player.fname, "lname": _player.lname, "pos": _player.pos, "year": _player.year, "ht": _player.ht, "ln": _player.length, "wt": _player.wt, "overall": _player.overall, "stats": _player.stats}
     return tDict
 
 def loadPlayer(_id, _player):
     tPlayer = Player(_id, _player["pos"])
-    tPlayer.reLoad(_player["fname"], _player["lname"], _player["pos"], _player["ht"], _player["ln"], _player["wt"], _player["overall"], _player["stats"])
+    tPlayer.reLoad(_player["fname"], _player["lname"], _player["pos"], _player["year"], _player["ht"], _player["ln"], _player["wt"], _player["overall"], _player["stats"])
     return tPlayer
 
 
