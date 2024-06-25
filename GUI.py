@@ -23,6 +23,7 @@ print("MICHIGAN's ROSTER: ")
 print(myConf[str(173)]) """
 tRoster =loadRoster(myRosterID, myConf)
 curClass = genClass()
+curSeason = genSeason()
 
 
 dpg.create_context()
@@ -106,6 +107,10 @@ with dpg.window(label="Main"):
 ##Recruting window            
 with dpg.window(label="Recruiting"):
     with dpg.menu_bar():
+        with dpg.menu(label="Selection"):
+            dpg.add_menu_item(label="Target")
+            dpg.add_menu_item(label="Remove")
+            dpg.add_menu_item(label="Scout")
         dpg.add_menu_item(label="Available Targets")
         dpg.add_menu_item(label="My Targets")
         dpg.add_menu_item(label="My Commits")
@@ -114,6 +119,7 @@ with dpg.window(label="Recruiting"):
     with dpg.table(header_row=True, resizable=True, policy=dpg.mvTable_SizingStretchProp,
                    borders_outerH=True, borders_innerV=True, borders_innerH=True, borders_outerV=True):
         ##Player stats start at index 5
+        dpg.add_table_column(label="Select")
         dpg.add_table_column(label="Player ID")
         dpg.add_table_column(label="Player First Name")
         dpg.add_table_column(label="Player Last Name")
@@ -126,27 +132,29 @@ with dpg.window(label="Recruiting"):
         dpg.add_table_column(label="Action")
         for i in curClass:
             with dpg.table_row():
-                for j in range(0, 10):
+                for j in range(0, 11):
                     with dpg.table_cell():
                         if(j<1):
-                            dpg.add_button(label=f"{i.getPlayer().id}")
+                            dpg.add_checkbox()
                         if(j==1):
-                            dpg.add_button(label=f"{i.getPlayer().fname}")
+                            dpg.add_button(label=f"{i.getPlayer().id}")
                         if(j==2):
-                            dpg.add_button(label=f"{i.getPlayer().lname}")
+                            dpg.add_button(label=f"{i.getPlayer().fname}")
                         if(j==3):
-                            dpg.add_button(label=f"{i.getPlayer().pos}")
+                            dpg.add_button(label=f"{i.getPlayer().lname}")
                         if(j==4):
-                            dpg.add_button(label=f"{i.getSchools()[0]}")
+                            dpg.add_button(label=f"{i.getPlayer().pos}")
                         if(j==5):
-                            dpg.add_button(label=f"{i.getPlayer().overall}")
+                            dpg.add_button(label=f"{i.getSchools()[0]}")
                         if(j==6):
-                            dpg.add_button(label=f"{i.getPriority()[0]}")
+                            dpg.add_button(label=f"{i.getPlayer().overall}")
                         if(j==7):
-                            dpg.add_button(label=f"No Offer")
+                            dpg.add_button(label=f"{i.getPriority()[0]}")
                         if(j==8):
-                            dpg.add_button(label=f"{i.getSchools()[0][3]}")
+                            dpg.add_button(label=f"No Offer")
                         if(j==9):
+                            dpg.add_button(label=f"{i.getSchools()[0][3]}")
+                        if(j==10):
                             dpg.add_listbox(items=["Head Coach Call", "Head Coach Text", "Assistant Coach Call", "Assistant Coach Text"]) #Add recruit action score to each option
                             
 
@@ -163,15 +171,19 @@ with dpg.window(label="Training"):
 
 
 
+
+#currOpp = 
+
 def callbackSimWeekGame(sender, data):
     print(sender)
     print(data)
+    curSeason.advanceSeason()
+    dpg.set_value("game", curSeason.getCurrentGame().getHome())
 
 #game window Will be shown only when advanced to simulating game
 with dpg.window(label="Current Game"):
-    tStr = "Michigan"
     dpg.add_text("Next Game: ")
-    dpg.add_text(tStr)
+    dpg.add_text(curSeason.getCurrentGame().getHome(), tag="game")
     dpg.add_button(label="Sim Game and Advance week", callback=callbackSimWeekGame)
 
             

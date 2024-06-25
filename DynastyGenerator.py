@@ -5,6 +5,7 @@ from Player import *
 import json
 import os
 from Recruit import *
+from Season import *
 #ideas for whats needed in the save file 
 #your school id
 #roster
@@ -14,10 +15,18 @@ from Recruit import *
 
 global Roster
 Roster = []
-bten = [121, 174]#, 173, 162, 222, 231, 251, 241, 117, 217, 355, 124, 177, 345, 192, 279, 323, 228]
+bten = [174, 173, 121, 162, 222, 231, 251, 241, 117, 217, 355, 124, 177, 345, 192, 279, 323, 228]
 global conf 
 conf = {}
 global playerCount
+
+
+
+def genSeason():
+    newSeason = Season()
+    return newSeason
+
+
 
 def GeneratePlayer(id, pos):
     newPlayer = Player(id, pos)

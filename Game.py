@@ -22,4 +22,11 @@ class Game:
         self.homescore = random.randrange(50,85)
         self.awayscore = random.randrange(40,60)
         self.played = True
+        if self.homescore >= self.awayscore:
+            return self.home
+        else:
+            return self.away
+    
+    def getHome(self):
+        return self.home
         
