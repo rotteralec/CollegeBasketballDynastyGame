@@ -29,4 +29,30 @@ class Game:
     
     def getHome(self):
         return self.home
+    
+    def getAway(self):
+        return self.away
+    
+    def getHomeScore(self):
+        return self.homescore
+    def getAwayScore(self):
+        return self.awayscore
+    
+
+    def getHomeName(self):
+        f = open("Schools.csv", "r")
+        teams = f.readlines()
+        tN = teams[self.home]
+        tN = tN.split(",")
+        t = tN[1]
+        return t
+    
+    def getAwayName(self):
+        f = open("Schools.csv", "r")
+        teams = f.readlines()
+        tN = teams[self.away]
+        tN = tN.split(",")
+        t = tN[1]
+        return t
+
         

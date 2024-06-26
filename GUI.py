@@ -178,13 +178,20 @@ def callbackSimWeekGame(sender, data):
     print(sender)
     print(data)
     curSeason.advanceSeason()
-    dpg.set_value("game", curSeason.getCurrentGame().getHome())
+    dpg.set_value("homeTeam", curSeason.getCurrentGame().getHomeName())
+    dpg.set_value("awayTeam", curSeason.getCurrentGame().getAwayName())
+    dpg.set_value("homeScore", curSeason.getScheduleGame(curSeason.getTimeFrame()-1).getHomeScore())
+    dpg.set_value("awayScore", curSeason.getScheduleGame(curSeason.getTimeFrame()-1).getAwayScore())
 
 #game window Will be shown only when advanced to simulating game
 with dpg.window(label="Current Game"):
-    dpg.add_text("Next Game: ")
-    dpg.add_text(curSeason.getCurrentGame().getHome(), tag="game")
+    dpg.add_text("Current Game: ")
+    dpg.add_text(curSeason.getCurrentGame().getHomeName(), tag="homeTeam")
+    dpg.add_text(curSeason.getCurrentGame().getAwayName(), tag="awayTeam")
     dpg.add_button(label="Sim Game and Advance week", callback=callbackSimWeekGame)
+    dpg.add_text("Previous Game Result: ")
+    dpg.add_text(0, tag="homeScore")
+    dpg.add_text(0, tag="awayScore")
 
             
 

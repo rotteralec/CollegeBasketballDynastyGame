@@ -60,9 +60,9 @@ def genSched(conf):
     sched = []
     con = genCon("Big Ten", 174)
     noncon = genNonCon()
-    for i in con:
-        sched.append(i)
     for i in noncon:
+        sched.append(i)
+    for i in con:
         sched.append(i)
     return sched
 
@@ -136,12 +136,17 @@ class Season:
     def getCurrentGame(self):
 
         return self.schedule[self.timeFrame]
+    
+    def getScheduleGame(self, _int):
+        return self.schedule[_int]
+
+    def getTimeFrame(self):
+        return self.timeFrame
 
     def advanceSeason(self):
 
         winner = self.schedule[self.timeFrame].playGame()
         print(self.timeFrame)
-
 
         #start with 0 in season and then go from there
         self.timeFrame += 1
