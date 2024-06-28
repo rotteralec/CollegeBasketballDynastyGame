@@ -193,14 +193,91 @@ class Player:
 
                 tOvr = (tDef + tOff)/2
             case "SG":
-                wt = random.randrange(185,240)
+                tOff += self.stats["passing"]*0.1
+                tOff += self.stats["FT Shooting"]*0.12
+                tOff += self.stats["threeptshooting"]*0.15
+                tOff += self.stats["deepthreeshooting"]*0.12
+                tOff += self.stats["midshooting"]*0.12
+                tOff += self.stats["postscoring"]*0.08
+                tOff += self.stats["speed"]*0.11
+                tOff += self.stats["strength"]*0.1
+                tOff += self.stats["offrb"]*0.1
+
+                tDef += self.stats["defrb"]*0.1
+                tDef += self.stats["block"]*0.1
+                tDef += self.stats["perimeterdefense"]*0.20
+                tDef += self.stats["interiordefense"]*0.10
+                tDef += self.stats["steal"]*0.20
+                tDef += self.stats["speed"]*0.15
+                tDef += self.stats["strength"]*0.15
+
+                tOvr = (tDef + tOff)/2
             case "SF":
-                wt = random.randrange(195,255)
+                ## NEED TO CHANGE
+                tOff += self.stats["passing"]*0.20
+                tOff += self.stats["FT Shooting"]*0.10
+                tOff += self.stats["threeptshooting"]*0.12
+                tOff += self.stats["deepthreeshooting"]*0.1
+                tOff += self.stats["midshooting"]*0.12
+                tOff += self.stats["postscoring"]*0.07
+                tOff += self.stats["speed"]*0.15
+                tOff += self.stats["strength"]*0.09
+                tOff += self.stats["offrb"]*0.05
+
+                tDef += self.stats["defrb"]*0.06
+                tDef += self.stats["block"]*0.07
+                tDef += self.stats["perimeterdefense"]*0.25
+                tDef += self.stats["interiordefense"]*0.07
+                tDef += self.stats["steal"]*0.25
+                tDef += self.stats["speed"]*0.15
+                tDef += self.stats["strength"]*0.15
+
+                tOvr = (tDef + tOff)/2
             case "PF":
-                wt = random.randrange(200,275)
+                ## NEED TO CHANGE
+                tOff += self.stats["passing"]*0.20
+                tOff += self.stats["FT Shooting"]*0.10
+                tOff += self.stats["threeptshooting"]*0.12
+                tOff += self.stats["deepthreeshooting"]*0.1
+                tOff += self.stats["midshooting"]*0.12
+                tOff += self.stats["postscoring"]*0.07
+                tOff += self.stats["speed"]*0.15
+                tOff += self.stats["strength"]*0.09
+                tOff += self.stats["offrb"]*0.05
+
+                tDef += self.stats["defrb"]*0.06
+                tDef += self.stats["block"]*0.07
+                tDef += self.stats["perimeterdefense"]*0.25
+                tDef += self.stats["interiordefense"]*0.07
+                tDef += self.stats["steal"]*0.25
+                tDef += self.stats["speed"]*0.15
+                tDef += self.stats["strength"]*0.15
+
+                tOvr = (tDef + tOff)/2
             case "C":
-                wt = random.randrange(220,300)
-        return 0
+                ## NEED TO CHANGE
+                tOff += self.stats["passing"]*0.20
+                tOff += self.stats["FT Shooting"]*0.10
+                tOff += self.stats["threeptshooting"]*0.12
+                tOff += self.stats["deepthreeshooting"]*0.1
+                tOff += self.stats["midshooting"]*0.12
+                tOff += self.stats["postscoring"]*0.07
+                tOff += self.stats["speed"]*0.15
+                tOff += self.stats["strength"]*0.09
+                tOff += self.stats["offrb"]*0.05
+
+                tDef += self.stats["defrb"]*0.06
+                tDef += self.stats["block"]*0.07
+                tDef += self.stats["perimeterdefense"]*0.25
+                tDef += self.stats["interiordefense"]*0.07
+                tDef += self.stats["steal"]*0.25
+                tDef += self.stats["speed"]*0.15
+                tDef += self.stats["strength"]*0.15
+
+                tOvr = (tDef + tOff)/2
+        self.overall = tOvr
+        self.offense = tOff
+        self.defense = tDef
 
     def reLoad(self, fname, lname, pos, year, ht, length, wt, overall, stats):
         self.fname = fname
