@@ -255,23 +255,23 @@ class Player:
                 tOvr = (tDef + tOff)/2
             case "C":
                 ## NEED TO CHANGE
-                tOff += self.stats["passing"]*0.20
+                tOff += self.stats["passing"]*0.12
                 tOff += self.stats["FT Shooting"]*0.10
-                tOff += self.stats["threeptshooting"]*0.12
-                tOff += self.stats["deepthreeshooting"]*0.1
-                tOff += self.stats["midshooting"]*0.12
-                tOff += self.stats["postscoring"]*0.07
-                tOff += self.stats["speed"]*0.15
-                tOff += self.stats["strength"]*0.09
-                tOff += self.stats["offrb"]*0.05
+                tOff += self.stats["threeptshooting"]*0.08
+                tOff += self.stats["deepthreeshooting"]*0.01
+                tOff += self.stats["midshooting"]*0.13
+                tOff += self.stats["postscoring"]*0.19
+                tOff += self.stats["speed"]*0.03
+                tOff += self.stats["strength"]*0.15
+                tOff += self.stats["offrb"]*0.19
 
-                tDef += self.stats["defrb"]*0.06
-                tDef += self.stats["block"]*0.07
-                tDef += self.stats["perimeterdefense"]*0.25
-                tDef += self.stats["interiordefense"]*0.07
-                tDef += self.stats["steal"]*0.25
-                tDef += self.stats["speed"]*0.15
-                tDef += self.stats["strength"]*0.15
+                tDef += self.stats["defrb"]*0.20
+                tDef += self.stats["block"]*0.20
+                tDef += self.stats["perimeterdefense"]*0.05
+                tDef += self.stats["interiordefense"]*0.20
+                tDef += self.stats["steal"]*0.10
+                tDef += self.stats["speed"]*0.05
+                tDef += self.stats["strength"]*0.20
 
                 tOvr = (tDef + tOff)/2
         self.overall = tOvr
