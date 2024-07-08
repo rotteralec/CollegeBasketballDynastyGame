@@ -159,7 +159,9 @@ class Player:
         self.offense = 0
         self.defense = 0
         
-
+    def getRatings(self):
+        return [self.overall, self.offense, self.defense]
+    
     def trainPlayer(self):
         for i in self.stats.values():
             i += random.randrange(1,5)
@@ -168,7 +170,6 @@ class Player:
         tOvr = 0
         tOff = 0
         tDef = 0
-
         match(self.pos):
             case "PG":
                 ###handling, passing, steal, permiter defense, speed, ft shooting, rebounding
@@ -182,7 +183,7 @@ class Player:
                 tOff += self.stats["speed"]*0.15
                 tOff += self.stats["strength"]*0.09
                 tOff += self.stats["offrb"]*0.05
-
+                
                 tDef += self.stats["defrb"]*0.06
                 tDef += self.stats["block"]*0.07
                 tDef += self.stats["perimeterdefense"]*0.25
@@ -191,7 +192,7 @@ class Player:
                 tDef += self.stats["speed"]*0.15
                 tDef += self.stats["strength"]*0.15
 
-                tOvr = (tDef + tOff)/2
+                tOvr = int((tDef + tOff)//2)
             case "SG":
                 tOff += self.stats["passing"]*0.1
                 tOff += self.stats["FT Shooting"]*0.12
@@ -211,7 +212,7 @@ class Player:
                 tDef += self.stats["speed"]*0.15
                 tDef += self.stats["strength"]*0.15
 
-                tOvr = (tDef + tOff)/2
+                tOvr = int((tDef + tOff)//2)
             case "SF":
                 
                 tOff += self.stats["passing"]*0.12
@@ -232,7 +233,7 @@ class Player:
                 tDef += self.stats["speed"]*0.15
                 tDef += self.stats["strength"]*0.15
 
-                tOvr = (tDef + tOff)/2
+                tOvr = int((tDef + tOff)//2)
             case "PF":
                 tOff += self.stats["passing"]*0.12
                 tOff += self.stats["FT Shooting"]*0.10
@@ -252,7 +253,7 @@ class Player:
                 tDef += self.stats["speed"]*0.05
                 tDef += self.stats["strength"]*0.18
 
-                tOvr = (tDef + tOff)/2
+                tOvr = int((tDef + tOff)//2)
             case "C":
                 ## NEED TO CHANGE
                 tOff += self.stats["passing"]*0.12
@@ -273,12 +274,12 @@ class Player:
                 tDef += self.stats["speed"]*0.05
                 tDef += self.stats["strength"]*0.20
 
-                tOvr = (tDef + tOff)/2
+                tOvr = int((tDef + tOff)//2)
         self.overall = tOvr
         self.offense = tOff
         self.defense = tDef
 
-    def reLoad(self, fname, lname, pos, year, ht, length, wt, overall, stats):
+    def reLoad(self, fname, lname, pos, year, ht, length, wt, overall, stats, offense, defense):
         self.fname = fname
         self.lname = lname
         self.pos = pos
@@ -288,6 +289,7 @@ class Player:
         self.wt = wt
         self.overall = overall
         self.stats = stats
-
+        self.offense = offense
+        self.defense = defense
 
         

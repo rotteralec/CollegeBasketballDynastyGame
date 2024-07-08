@@ -102,6 +102,7 @@ class Season:
         self.timeFrame = 0
         self.Gameday = genGameday()
         self.Offseason = genOffseason()
+        self.teamID = 174
     
 
     def advanceOffSeason(self):

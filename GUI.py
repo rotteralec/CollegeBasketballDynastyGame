@@ -3,11 +3,14 @@ from App import *
 from DynastyGenerator import *
 import json
 
-myRoster = []
 def loadRoster(id, conf):
+    myRoster = []
     for i,k in conf[str(id)].items():
         tPlayer = loadPlayer(i,k)
         myRoster.append(tPlayer)
+    myTeam = loadTeam(174, "Michigan State", myRoster, [])
+    return myTeam
+    
 
 
 
@@ -21,7 +24,8 @@ myConf = readSave("testsave.json")
 print(myConf[str(myRosterID)])
 print("MICHIGAN's ROSTER: ")
 print(myConf[str(173)]) """
-tRoster =loadRoster(myRosterID, myConf)
+myTeam =loadRoster(myRosterID, myConf)
+myTeam.calcRatings()
 curClass = genClass()
 curSeason = genSeason()
 
@@ -48,7 +52,10 @@ with dpg.window(label="Main"):
             dpg.add_menu_item(label="Team Stats")
             dpg.add_menu_item(label="Player Stats")
             dpg.add_menu_item(label="Coach Stats")
-    
+    dpg.add_text("Overall: "+str(myTeam.getRatings()[0]))
+    dpg.add_text("Offense: "+str(myTeam.getRatings()[1]))
+    dpg.add_text("Defense: "+str(myTeam.getRatings()[2]))
+
     with dpg.table(header_row=True, resizable=True, policy=dpg.mvTable_SizingStretchProp,
                    borders_outerH=True, borders_innerV=True, borders_innerH=True, borders_outerV=True):
         ##Player stats start at index 5
@@ -57,9 +64,10 @@ with dpg.window(label="Main"):
         dpg.add_table_column(label="Player Last Name")
         dpg.add_table_column(label="Player Position")
         dpg.add_table_column(label="Year")
-        dpg.add_table_column(label="Player HT")
-        dpg.add_table_column(label="Player WT")
+        dpg.add_table_column(label="HT")
+        dpg.add_table_column(label="WT")
         dpg.add_table_column(label="Player Length")
+        dpg.add_table_column(label="Overall")
         dpg.add_table_column(label="midshooting")
         dpg.add_table_column(label="postscoring")
         dpg.add_table_column(label="deepthreeshooting")
@@ -74,9 +82,9 @@ with dpg.window(label="Main"):
         dpg.add_table_column(label="defrb")
         dpg.add_table_column(label="passing")
         dpg.add_table_column(label="FT Shooting")
-        for i in myRoster:
+        for i in myTeam.getRoster():
             with dpg.table_row():
-                for j in range(0,22):
+                for j in range(0,23):
                     with dpg.table_cell():
                         if(j<1):
                             dpg.add_button(label=f"{i.id}")
@@ -98,8 +106,11 @@ with dpg.window(label="Main"):
 
                         if(j ==7):
                             dpg.add_button(label=f"{i.length}")
-                        if(22>j>7):
-                            cat = statcat[j-8]
+                        if(j ==8):
+                            dpg.add_button(label=f"{i.overall}")
+
+                        if(23>j>8):
+                            cat = statcat[j-9]
                             dpg.add_button(label=f"{i.stats[cat]}")
 
 
@@ -158,9 +169,6 @@ with dpg.window(label="Recruiting"):
                             dpg.add_listbox(items=["Head Coach Call", "Head Coach Text", "Assistant Coach Call", "Assistant Coach Text"]) #Add recruit action score to each option
                             
 
-
-    
-
 ##Schedule window
 with dpg.window(label="Training"):
     with dpg.menu_bar():
@@ -168,9 +176,6 @@ with dpg.window(label="Training"):
         dpg.add_menu_item(label="Depth Chart")
         dpg.add_menu_item(label="Game Plan")
     #dpg.add_button(enabled=True, label="Save and Advance to next game")
-
-
-
 
 #currOpp = 
 
