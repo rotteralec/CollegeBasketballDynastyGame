@@ -40,9 +40,6 @@ def genFirstFive():
 
 class Recruit:
 
-
-
-
     def __init__(self, id, pos):
         self.priorities = genPriority()
         self.player = Player(id, pos)
@@ -50,8 +47,6 @@ class Recruit:
         self.location = 48154
         self.hs = True
         self.id = self.player.id
-
-
 
     def getPlayer(self):
         return self.player
@@ -74,3 +69,10 @@ class Recruit:
             if i[0] is _schoolID:
                 return True
         return ret
+    
+    def overrideSelf(self, _priorities, _schools, _location, _id):
+        self.priorities = _priorities
+        self.schools = _schools
+        self.location = _location
+        self.id = _id
+        

@@ -101,7 +101,39 @@ def genClass():
 
 
 
+def unpackRecruit(_recruit):
+    tDict = {}
+    tPlayer = unpackPlayer(_recruit.getPlayer())
+    tDict = {"priorities": _recruit.priorities, "player": tPlayer, "schools": _recruit.schools, "hs": _recruit.hs, "location": _recruit.location, "id": _recruit.id}
+    return tDict
 
+def loadRecruit(_dict, _id):
+    tRecruit = Recruit(_id, _dict["player"]["pos"])
+    tRecruit.overrideSelf(_dict["priorities"], _dict["schools"], _dict["location"], _dict["id"])
+    return tRecruit
+    
+
+def readRecruit(_id):
+    with open("saveRecruit.json", "r") as openfile:
+        tDict = json.load(openfile)
+        return loadRecruit(tDict[str(_id)], _id)
+    
+def readRecruits():
+    tArr = []
+    with open("saveRecruit.json", "r") as openfile:
+        tDict = json.load(openfile)
+        for i in range(len(tDict)):
+            tArr.append(loadRecruit(tDict[str(i)],i))
+    return tArr
+
+
+def saveRecruits(_recruits):
+    tDict = {}
+    with open("saveRecruit.json", "w") as outfile:
+        for i in _recruits:
+            tDict[i.id] = unpackRecruit(i)
+        json.dump(tDict, outfile)
+        
 def unpackPlayer(_player):
     tDict = {}
     tDict = {"fname":_player.fname, "lname": _player.lname, "pos": _player.pos, "year": _player.year, "ht": _player.ht, "ln": _player.length, "wt": _player.wt, "overall": _player.overall, "stats": _player.stats, "offense": _player.offense, "defense": _player.defense}
@@ -111,7 +143,6 @@ def loadPlayer(_id, _player):
     tPlayer = Player(_id, _player["pos"])
     tPlayer.reLoad(_player["fname"], _player["lname"], _player["pos"], _player["year"], _player["ht"], _player["ln"], _player["wt"], _player["overall"], _player["stats"], _player["offense"], _player["defense"])
     return tPlayer
-
 
 def saveRoster(rost):
     tDict = {}

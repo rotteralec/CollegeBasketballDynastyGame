@@ -27,6 +27,8 @@ print(myConf[str(173)]) """
 myTeam =loadRoster(myRosterID, myConf)
 myTeam.calcRatings()
 curClass = genClass()
+saveRecruits(curClass)
+newClass = readRecruits()
 curSeason = genSeason()
 
 
@@ -141,7 +143,7 @@ with dpg.window(label="Recruiting"):
         dpg.add_table_column(label="Offer")
         dpg.add_table_column(label="NIL")
         dpg.add_table_column(label="Action")
-        for i in curClass:
+        for i in newClass:
             with dpg.table_row():
                 for j in range(0, 11):
                     with dpg.table_cell():
