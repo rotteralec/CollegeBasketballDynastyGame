@@ -30,6 +30,7 @@ curClass = genClass()
 saveRecruits(curClass)
 newClass = readRecruits()
 curSeason = genSeason()
+saveSeason(curSeason)
 
 
 dpg.create_context()

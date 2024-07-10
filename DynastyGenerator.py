@@ -147,9 +147,6 @@ def loadPlayer(_id, _player):
 def saveRoster(rost):
     tDict = {}
     teamDict = {}
-#"""     if (os.path.getsize("C:/Users/rotte/CollegeBasketballDynastyGame/testsave.json") > 0):
-   #     return 0
-  #  else: """
     with open("testsave.json", "w") as outfile:
         for i in rost.roster:
             tDict[i.id] = unpackPlayer(i)
@@ -162,3 +159,22 @@ def readSave(file):
 
 def resetSave(file):
     open(file, 'w').close()
+
+def saveSeason(_season):
+    sched = {}
+    with open("saveSched.json", "w") as outfile:
+    
+        sched[_season.teamID] = {"schedule": serializeSeason(_season.schedule), "timeframe": _season.timeFrame, "Gameday": _season.Gameday, "Offseason": _season.Offseason}
+        json.dump(sched, outfile)
+
+def serializeSeason(_season):
+    tSeason = []
+    for i in _season:
+        tGame = serializeGame(i)
+        tSeason.append(tGame)
+    return tSeason
+
+##need to serialize game in season.schedule
+def serializeGame(_game):
+    
+    return [_game.id, _game.home, _game.away, _game.NF, _game.homescore, _game.awayscore, _game.played]
