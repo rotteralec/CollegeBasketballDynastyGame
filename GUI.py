@@ -31,6 +31,8 @@ saveRecruits(curClass)
 newClass = readRecruits()
 curSeason = genSeason()
 saveSeason(curSeason)
+newSeason = loadSchedule(readSchedule())
+print("done")
 
 
 dpg.create_context()

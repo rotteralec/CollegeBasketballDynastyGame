@@ -104,7 +104,12 @@ class Season:
         self.Offseason = genOffseason()
         self.teamID = 174
     
-
+    def loadSeason(self, schedule, timeFrame, Gameday, Offseason, teamID):
+        self.schedule = schedule
+        self.timeFrame = timeFrame
+        self.Gameday = Gameday
+        self.Offseason = Offseason
+        return
     def advanceOffSeason(self):
         if self.Offseason[0] == "Draft?":
             ##Covince players to not go to draft 

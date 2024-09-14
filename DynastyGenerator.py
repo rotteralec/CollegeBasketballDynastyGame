@@ -164,7 +164,7 @@ def saveSeason(_season):
     sched = {}
     with open("saveSched.json", "w") as outfile:
     
-        sched[_season.teamID] = {"schedule": serializeSeason(_season.schedule), "timeframe": _season.timeFrame, "Gameday": _season.Gameday, "Offseason": _season.Offseason}
+        sched[_season.teamID] = {"schedule": serializeSeason(_season.schedule), "timeFrame": _season.timeFrame, "Gameday": _season.Gameday, "Offseason": _season.Offseason}
         json.dump(sched, outfile)
 
 def serializeSeason(_season):
@@ -174,7 +174,18 @@ def serializeSeason(_season):
         tSeason.append(tGame)
     return tSeason
 
-##need to serialize game in season.schedule
 def serializeGame(_game):
     
     return [_game.id, _game.home, _game.away, _game.NF, _game.homescore, _game.awayscore, _game.played]
+
+def readSchedule():
+    tDict = {}
+    with open("saveSched.json", "r") as openfile:
+        tDict = json.load(openfile)
+    return tDict['174']
+
+    
+def loadSchedule(_sched):    
+    tSeason = Season()
+    tSeason.loadSeason(_sched['schedule'],_sched['timeFrame'], _sched['Gameday'], _sched['Offseason'], '174')
+    return tSeason
