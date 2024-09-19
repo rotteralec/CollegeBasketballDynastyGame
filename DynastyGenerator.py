@@ -32,12 +32,19 @@ def genBlankSeason():
     tList = [tGame]*30
     return tList
 
+
+def saveSchedule(_sched):
+    with open("saveSched.json", "w") as outfile:
+        json.dump(_sched, outfile)
+    return 1
+
+
 ##TO DO NEXT GENERATE EMPTY SCHEDULE FOR EACH TEAM, then add versus games in corr. sched when creating your own
 def genSchedule():
     tSched = {}
     for i in range(362):
         tSched[i] = genBlankSeason()
-    return 1
+    saveSchedule(tSched)
 
 def GeneratePlayer(id, pos):
     newPlayer = Player(id, pos)
