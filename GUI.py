@@ -29,9 +29,9 @@ myTeam.calcRatings()
 curClass = genClass()
 saveRecruits(curClass)
 newClass = readRecruits()
-curSeason = genSeason()
-saveSeason(curSeason)
-newSeason = loadSchedule(readSchedule())
+curSeason = genSchedule()#####genSeason()
+#saveSeason(curSeason)
+#newSeason = loadSchedule(readSchedule())
 print("done")
 
 

@@ -26,7 +26,18 @@ def genSeason():
     newSeason = Season()
     return newSeason
 
+def genBlankSeason():
+    #30 games, 10 noncon, 20 con
+    tGame =  [0,0,0,0,0,0,False]
+    tList = [tGame]*30
+    return tList
 
+##TO DO NEXT GENERATE EMPTY SCHEDULE FOR EACH TEAM, then add versus games in corr. sched when creating your own
+def genSchedule():
+    tSched = {}
+    for i in range(362):
+        tSched[i] = genBlankSeason()
+    return 1
 
 def GeneratePlayer(id, pos):
     newPlayer = Player(id, pos)

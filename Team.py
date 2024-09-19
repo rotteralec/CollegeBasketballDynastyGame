@@ -34,9 +34,9 @@ class Team:
             tDef += tRate[2]
             tOvr += tRate[0]
             count += 1
-        self.offense = tOff/count
-        self.defence = tDef/count
-        self.overall = tOvr/count
+        self.offense = round(tOff/count)
+        self.defence = round(tDef/count)
+        self.overall = round(tOvr/count)
 
     def getRatings(self):
         return [self.overall, self.offense, self.defence]
