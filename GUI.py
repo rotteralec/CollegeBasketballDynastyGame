@@ -1,5 +1,5 @@
 import dearpygui.dearpygui as dpg
-from App import *
+#from App import *
 from DynastyGenerator import *
 import json
 

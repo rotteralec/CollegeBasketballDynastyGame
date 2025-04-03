@@ -174,4 +174,4 @@ class Season:
             #advance season
             self.newSeason()
 
-genSched("Big Ten")
+

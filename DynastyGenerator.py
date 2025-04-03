@@ -50,26 +50,28 @@ def genSchedule():
 def GeneratePlayer(id, pos):
     newPlayer = Player(id, pos)
     newPlayer.calcOverall()
-    Roster.append(newPlayer)
+    #Roster.append(newPlayer)
+    return newPlayer
 
 def loadTeam(id, name, roster, recruits=[]):
     return Team(id, name, roster,recruits)
 
 def rosterGen(id, name):
-    GeneratePlayer(0, "PG")
-    GeneratePlayer(1, "SG")
-    GeneratePlayer(2, "SF")
-    GeneratePlayer(3, "PF")
-    GeneratePlayer(4, "C")
-    GeneratePlayer(5, "PG")
-    GeneratePlayer(6, "SG")
-    GeneratePlayer(7, "SF")
-    GeneratePlayer(8, "PF")
-    GeneratePlayer(9, "C")
-    GeneratePlayer(10, "SG")
-    GeneratePlayer(11, "PF")
-    GeneratePlayer(12, "C")
-    newTeam2 = Team(id, name, Roster, [])
+    playerRoster = []
+    playerRoster.append(GeneratePlayer(0, "PG"))
+    playerRoster.append(GeneratePlayer(1, "SG"))
+    playerRoster.append(GeneratePlayer(2, "SF"))
+    playerRoster.append(GeneratePlayer(3, "PF"))
+    playerRoster.append(GeneratePlayer(4, "C"))
+    playerRoster.append(GeneratePlayer(5, "PG"))
+    playerRoster.append(GeneratePlayer(6, "SG"))
+    playerRoster.append(GeneratePlayer(7, "SF"))
+    playerRoster.append(GeneratePlayer(8, "PF"))
+    playerRoster.append(GeneratePlayer(9, "C"))
+    playerRoster.append(GeneratePlayer(10, "SG"))
+    playerRoster.append(GeneratePlayer(11, "PF"))
+    playerRoster.append(GeneratePlayer(12, "C"))
+    newTeam2 = Team(id, name, playerRoster, [])
     Roster.clear()
     return newTeam2
 
@@ -113,13 +115,21 @@ def genClass():
     tClass.append(genRecruit(3, "PF"))
     tClass.append(genRecruit(4, "C"))
     tClass.append(genRecruit(5, "PG"))
-    tClass.append(genRecruit(6, "SG"))
-    tClass.append(genRecruit(7, "SF"))
-    tClass.append(genRecruit(8, "PF"))
-    tClass.append(genRecruit(9, "C"))
-    tClass.append(genRecruit(10, "SG"))
-    tClass.append(genRecruit(11, "PF"))
-    tClass.append(genRecruit(12, "C"))
+    #tClass.append(genRecruit(6, "SG"))
+    #tClass.append(genRecruit(7, "SF"))
+    #tClass.append(genRecruit(8, "PF"))
+    #tClass.append(genRecruit(9, "C"))
+    ##tClass.append(genRecruit(10, "SG"))
+    #tClass.append(genRecruit(11, "PF"))
+    #tClass.append(genRecruit(12, "C"))
+    #tClass.append(genRecruit(13, "PG"))
+    #tClass.append(genRecruit(14, "SG"))
+    #tClass.append(genRecruit(15, "SF"))
+    #tClass.append(genRecruit(16, "PF"))
+    #tClass.append(genRecruit(17, "C"))
+    #tClass.append(genRecruit(18, "PG"))
+    #tClass.append(genRecruit(19, "SG"))
+    #tClass.append(genRecruit(20, "SF"))
     return tClass
 
 
