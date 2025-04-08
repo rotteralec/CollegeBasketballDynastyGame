@@ -22,6 +22,7 @@ global playerCount
 
 
 
+
 def genSeason():
     newSeason = Season()
     return newSeason
@@ -39,7 +40,7 @@ def saveSchedule(_sched):
     return 1
 
 
-##TO DO NEXT GENERATE EMPTY SCHEDULE FOR EACH TEAM, then add versus games in corr. sched when creating your own
+##TO DO NEXT adjust season.gensched to change values not create new ones at id value in saveSched.json then add versus games in corr. sched when creating your own
 def genSchedule():
     tSched = {}
     for i in range(362):

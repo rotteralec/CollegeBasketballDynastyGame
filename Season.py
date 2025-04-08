@@ -64,7 +64,17 @@ def genSched(conf):
         sched.append(i)
     for i in con:
         sched.append(i)
-    return sched
+    findSchedIndex("174", sched)
+
+def findSchedIndex(_id, _sched):
+
+    with open("saveSched.json", "r") as outfile:
+        schedules = json.load(outfile)
+        print(schedules[_id])
+        schedules[_id] = _sched
+        print(schedules[_id])
+
+    return
 
 
 
@@ -164,4 +174,4 @@ class Season:
             #advance season
             self.newSeason()
 
-
+genSched("Big Ten")

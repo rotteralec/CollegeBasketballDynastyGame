@@ -130,7 +130,7 @@ def generateType(pos, wt, ht):
                 types.append("playmaking")
     return types
 
-
+#odd number year is redshirt n-1
 def genYear():
     tYear = [0,1,2,3,4,5,6,7]
     ret = 0
