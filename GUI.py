@@ -18,18 +18,15 @@ def loadRoster(id, conf):
 ##run backend##
 resetSave("testsave.json")
 
-myRosterID = genConference("Big Ten")
-myConf = readSave("testsave.json")
-""" print("MSU'S ROSTER: ")
-print(myConf[str(myRosterID)])
-print("MICHIGAN's ROSTER: ")
-print(myConf[str(173)]) """
-myTeam =loadRoster(myRosterID, myConf)
+""" myRosterID = genConference("Big Ten")
+myConf = readSave("testsave.json") """
+
+myTeam =genConference("Big Ten")
 myTeam.calcRatings()
 curClass = genClass()
 saveRecruits(curClass)
 newClass = readRecruits()
-curSeason = genSchedule()#####genSeason()
+# curSeason = genSchedule()#####genSeason()
 #saveSeason(curSeason)
 #newSeason = loadSchedule(readSchedule())
 print("done")
@@ -184,7 +181,7 @@ with dpg.window(label="Training"):
 
 #currOpp = 
 
-def callbackSimWeekGame(sender, data):
+""" def callbackSimWeekGame(sender, data):
     print(sender)
     print(data)
     curSeason.advanceSeason()
@@ -202,7 +199,7 @@ with dpg.window(label="Current Game"):
     dpg.add_text("Previous Game Result: ")
     dpg.add_text(0, tag="homeScore")
     dpg.add_text(0, tag="awayScore")
-
+ """
             
 
 

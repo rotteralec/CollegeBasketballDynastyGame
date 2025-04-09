@@ -70,6 +70,7 @@ def rosterGen(id, name):
     GeneratePlayer(11, "PF")
     GeneratePlayer(12, "C")
     newTeam2 = Team(id, name, Roster, [])
+    Roster.clear()
     return newTeam2
 
 def grabSchoolInfo(id):
@@ -83,12 +84,15 @@ def genConference(conf):
     ##will generate all teams and roster for conference
     match conf:
         case "Big Ten":
+            temp = None
             for i in bten:
                 schoolInfo = grabSchoolInfo(i)
                 schoolInfo = schoolInfo.split(",")
                 newTeam = rosterGen(int(i), schoolInfo[1])
                 saveRoster(newTeam)
-            return 174
+                if i == 174:
+                    temp= newTeam
+            return temp
 
                 
 #def toMyRoster(ros):
