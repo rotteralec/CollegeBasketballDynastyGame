@@ -152,13 +152,11 @@ cython_debug/
 #.idea/
 test.py
 test.py
-Programs.txt
 rosters.json
 test.py
 test.py
 testsave.json
 TODO.txt
-*.json
 test.py
 test.py
 testtwo.py
