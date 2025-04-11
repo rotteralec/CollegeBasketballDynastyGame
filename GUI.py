@@ -24,8 +24,8 @@ myConf = readSave("testsave.json") """
 myTeam =genConference("Big Ten")
 myTeam.calcRatings()
 curClass = genClass()
-saveRecruits(curClass)
-newClass = readRecruits()
+#saveRecruits(curClass)
+#newClass = readRecruits()
 # curSeason = genSchedule()#####genSeason()
 #saveSeason(curSeason)
 #newSeason = loadSchedule(readSchedule())
@@ -143,7 +143,7 @@ with dpg.window(label="Recruiting"):
         dpg.add_table_column(label="Offer")
         dpg.add_table_column(label="NIL")
         dpg.add_table_column(label="Action")
-        for i in newClass:
+        for i in curClass:
             with dpg.table_row():
                 for j in range(0, 11):
                     with dpg.table_cell():
