@@ -177,6 +177,62 @@ with dpg.window(label="Training"):
         dpg.add_menu_item(label="Practice")
         dpg.add_menu_item(label="Depth Chart")
         dpg.add_menu_item(label="Game Plan")
+    with dpg.table(header_row=True, resizable=True, policy=dpg.mvTable_SizingStretchProp,
+                   borders_outerH=True, borders_innerV=True, borders_innerH=True, borders_outerV=True):
+        ##Player stats start at index 5
+        dpg.add_table_column(label="Player ID")
+        dpg.add_table_column(label="Player First Name")
+        dpg.add_table_column(label="Player Last Name")
+        dpg.add_table_column(label="Player Position")
+        dpg.add_table_column(label="Year")
+        dpg.add_table_column(label="HT")
+        dpg.add_table_column(label="WT")
+        dpg.add_table_column(label="Player Length")
+        dpg.add_table_column(label="Overall")
+        dpg.add_table_column(label="midshooting")
+        dpg.add_table_column(label="postscoring")
+        dpg.add_table_column(label="deepthreeshooting")
+        dpg.add_table_column(label="threeptshooting")
+        dpg.add_table_column(label="speed")
+        dpg.add_table_column(label="strength")
+        dpg.add_table_column(label="interiordefense")
+        dpg.add_table_column(label="perimeterdefense")
+        dpg.add_table_column(label="steal")
+        dpg.add_table_column(label="block")
+        dpg.add_table_column(label="offrb")
+        dpg.add_table_column(label="defrb")
+        dpg.add_table_column(label="passing")
+        dpg.add_table_column(label="FT Shooting")
+        for i in myTeam.getRoster():
+            with dpg.table_row():
+                for j in range(0,23):
+                    with dpg.table_cell():
+                        if(j<1):
+                            dpg.add_button(label=f"{i.id}")
+                        if(j==1):
+                            dpg.add_button(label=f"{i.fname}")
+                        if(j==2):
+                            dpg.add_button(label=f"{i.lname}")
+                        if(j==3):
+                            dpg.add_button(label=f"{i.pos}")
+                        if(j==4):
+                            dpg.add_button(label=f"{i.year}")
+                        if(j==5):
+                            dpg.add_button(label=f"{i.ht}")
+                            
+                            
+                        if(j==6):
+                            dpg.add_button(label=f"{i.wt}")
+                            
+
+                        if(j ==7):
+                            dpg.add_button(label=f"{i.length}")
+                        if(j ==8):
+                            dpg.add_button(label=f"{i.overall}")
+
+                        if(23>j>8):
+                            cat = statcat[j-9]
+                            dpg.add_button(label=f"{i.stats[cat]}")
     #dpg.add_button(enabled=True, label="Save and Advance to next game")
 
 #currOpp = 
